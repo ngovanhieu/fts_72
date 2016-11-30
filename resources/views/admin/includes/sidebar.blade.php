@@ -59,7 +59,7 @@
         <ul class="nav nav-pills nav-stacked fa-ul">
             <li class="{!! set_active(['admin/chart']) !!}">
                 <a href="{!! action('Admin\ChartsController@index') !!}">
-                    <i class="fa-li fa fa-caret-right"></i>{{ trans('common/buttons.chart') }}
+                    <i class="fa-li fa fa-caret-right"></i>{{ trans('common/buttons.list') }}
                 </a>
             </li>
         </ul>
