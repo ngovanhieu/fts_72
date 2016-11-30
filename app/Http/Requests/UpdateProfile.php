@@ -36,8 +36,8 @@ class UpdateProfile extends FormRequest
             ],
             'password' => 'min:6|confirmed',
             'password_confirmation' => 'min:6',
-            'chatwork_id' => 'confirmed|min:11',
-            'chatwork_id_confirmation' => 'min:11',
+            'chatwork_id' => 'confirmed|max:25',
+            'chatwork_id_confirmation' => 'max:25',
         ];
     }
 }

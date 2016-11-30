@@ -11,6 +11,9 @@
             <div id="poll_div_subject">
                 {!! $chart->render('BarChart', 'Subject', 'poll_div_subject') !!}
             </div>
+            <div id="poll_div_2">
+                {!! $chart->render('ColumnChart', 'Finances', 'poll_div_2') !!}
+            </div>
         </div>
     </div>
 @endsection

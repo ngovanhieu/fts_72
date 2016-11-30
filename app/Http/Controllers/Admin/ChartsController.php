@@ -49,6 +49,24 @@ class ChartsController extends BaseController
         $chart->BarChart('Subject', $subjectQuestion, [
             'title' => trans('admin/chart.chart-question-of-subject')
         ]);
+
+        $totalQuestionSubject = $chart->DataTable();
+
+
+        $allQuestion = DB::select('SELECT subjects.name, A.subject_id, sum(A.status_active) as active, sum(A.status_inactive) as inactive FROM ( SELECT B.subject_id, IF(B.status=1,1,0) AS `status_active`, IF(B.status=0,1,0) AS `status_inactive` FROM `questions` AS B WHERE B.deleted_at is null) AS A INNER JOIN subjects ON A.subject_id = subjects.id group by A.subject_id');
+
+        $totalQuestionSubject->addStringColumn('Subject')
+                 ->addNumberColumn('Active')
+                 ->addNumberColumn('Inactive');
+
+                 foreach ($allQuestion as $key => $item) {
+                    $totalQuestionSubject->addRow([$item->name, $item->active, $item->inactive]);
+                 }
+
+        $chart->ColumnChart('Finances', $totalQuestionSubject, [
+            'title' => 'Active And Inactive Question',
+        ]);
+
         $this->viewData['chart'] = $chart;
 
         return view('admin.chart.index', compact('chart'), $this->viewData);
