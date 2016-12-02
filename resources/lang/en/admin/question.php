@@ -12,4 +12,5 @@ return [
         3 => 'Text',
     ],
     'search-result' => 'Search Result',
+    'sort' => 'Sort',
 ];

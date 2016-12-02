@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateQuestion;
 use Log;
 use DB;
 use Exception;
+use App\Models\Question;
 
 class QuestionsController extends BaseController
 {
@@ -36,7 +37,7 @@ class QuestionsController extends BaseController
     {
         $this->viewData['subjectsList'] = $this->subjectRepository
             ->lists('name', 'id');
-        $this->viewData['questions'] = $this->questionRepository
+        $this->viewData['questions'] = $this->questionRepository->sortable()
             ->with('subject', 'user')->paginate();
 
         return view('admin.question.index', $this->viewData);

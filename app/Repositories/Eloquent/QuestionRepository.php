@@ -147,7 +147,7 @@ class QuestionRepository extends BaseRepository implements QuestionRepositoryInt
             $query->where('subject_id', $data['subject_id']);
         }
 
-        if ($data['status'] != ''){
+        if ($data['status'] != '') {
             $query->where('status', $data['status']);
         }
 

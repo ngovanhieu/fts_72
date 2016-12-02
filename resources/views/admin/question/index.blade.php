@@ -29,10 +29,14 @@
             @if (count($questions))
             <table class="table table-bordered">
                 <tr>
-                    <td>{{ trans('common/labels.id') }}</td>
+                    <td>{{ trans('common/labels.id') }} &nbsp 
+                        @sortablelink('id', trans('admin/question.sort'))
+                    </td>
                     <td>{{ trans('admin/question.type') }}</td>
                     <td>{{ trans('admin/question.content') }}</td>
-                    <td>{{ trans('admin/question.status') }}</td>
+                    <td>{{ trans('admin/question.status') }} &nbsp 
+                        @sortablelink('status', trans('admin/question.sort'))
+                    </td>
                     <td>{{ trans('admin/subject.subject') }}</td>
                     <td>{{ trans('admin/user.user') }}</td>
                     <td>{{ trans('common/labels.action') }}</td>

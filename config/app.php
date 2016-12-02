@@ -170,6 +170,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
 
         //
 
